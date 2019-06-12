@@ -22,18 +22,18 @@ import java.util.List;
 @SuppressWarnings("WeakerAccess")
 public class ChatPresenter<View extends ChatContract.View>
         extends BaseSourcePresenter<Message, Message, MessageDataSource, View>
-        implements ChatContract.Presenter {
+        implements ChatContract.Presenter<View> {
 
     // 接收者Id，可能是群，或者人的ID
-    protected String mReceiverId;
+    protected static String mReceiverId;
     // 区分是人还是群Id
     protected int mReceiverType;
 
 
-    public ChatPresenter(MessageDataSource source, View view,
-                         String receiverId, int receiverType) {
-        super(source, view);
-        this.mReceiverId = receiverId;
+    public ChatPresenter(MessageDataSource source,
+                        int receiverType) {
+        super(source);
+
         this.mReceiverType = receiverType;
     }
 
@@ -98,6 +98,12 @@ public class ChatPresenter<View extends ChatContract.View>
         }
 
         return false;
+    }
+
+    @Override
+    public String setReceiverId(String receiverId) {
+        this.mReceiverId = receiverId;
+        return receiverId;
     }
 
     @Override

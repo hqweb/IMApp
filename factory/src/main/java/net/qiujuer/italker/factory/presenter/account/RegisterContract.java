@@ -7,12 +7,12 @@ import net.qiujuer.italker.factory.presenter.BaseContract;
  * @version 1.0.0
  */
 public interface RegisterContract {
-    interface View extends BaseContract.View<Presenter> {
+    interface View extends BaseContract.View{
         // 注册成功
         void registerSuccess();
     }
 
-    interface Presenter extends BaseContract.Presenter {
+    interface Presenter extends BaseContract.Presenter<RegisterContract.View> {
         // 发起一个注册
         void register(String phone, String name, String password);
 

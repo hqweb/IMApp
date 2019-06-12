@@ -14,14 +14,18 @@ import net.qiujuer.italker.factory.model.db.User;
 import net.qiujuer.italker.factory.net.UploadHelper;
 import net.qiujuer.italker.factory.presenter.BasePresenter;
 
+import javax.inject.Inject;
+
 /**
  * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public class UpdateInfoPresenter extends BasePresenter<UpdateInfoContract.View>
         implements UpdateInfoContract.Presenter, DataSource.Callback<UserCard> {
-    public UpdateInfoPresenter(UpdateInfoContract.View view) {
-        super(view);
+
+    @Inject
+    public UpdateInfoPresenter() {
+
     }
 
     @Override

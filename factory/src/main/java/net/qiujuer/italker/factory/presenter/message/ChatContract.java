@@ -15,7 +15,7 @@ import java.util.List;
  * @version 1.0.0
  */
 public interface ChatContract {
-    interface Presenter extends BaseContract.Presenter {
+    interface Presenter<T extends BaseContract.View> extends BaseContract.Presenter<T> {
         // 发送文字
         void pushText(String content);
 
@@ -27,6 +27,10 @@ public interface ChatContract {
 
         // 重新发送一个消息，返回是否调度成功
         boolean rePush(Message message);
+
+        //绑定id
+        // 重新发送一个消息，返回是否调度成功
+        String setReceiverId(String receiverId);
     }
 
     // 界面的基类

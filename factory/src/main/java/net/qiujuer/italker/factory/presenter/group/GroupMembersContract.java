@@ -10,7 +10,7 @@ import net.qiujuer.italker.factory.presenter.BaseContract;
  * @version 1.0.0
  */
 public interface GroupMembersContract {
-    interface Presenter extends BaseContract.Presenter {
+    interface Presenter extends BaseContract.Presenter<GroupMembersContract.View> {
         // 具有一个刷新的方法
         void refresh();
     }

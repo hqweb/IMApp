@@ -8,6 +8,8 @@ import net.qiujuer.italker.factory.model.db.User;
 import net.qiujuer.italker.factory.persistence.Account;
 import net.qiujuer.italker.factory.presenter.BasePresenter;
 
+import javax.inject.Inject;
+
 /**
  * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
@@ -17,8 +19,9 @@ public class PersonalPresenter extends BasePresenter<PersonalContract.View>
 
     private User user;
 
-    public PersonalPresenter(PersonalContract.View view) {
-        super(view);
+    @Inject
+    public PersonalPresenter() {
+
     }
 
 

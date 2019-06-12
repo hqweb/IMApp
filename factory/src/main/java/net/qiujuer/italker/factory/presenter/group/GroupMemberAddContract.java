@@ -9,7 +9,7 @@ import net.qiujuer.italker.factory.presenter.BaseContract;
  * @version 1.0.0
  */
 public interface GroupMemberAddContract {
-    interface Presenter extends BaseContract.Presenter {
+    interface Presenter extends BaseContract.Presenter<GroupMemberAddContract.View> {
         // 提交成员
         void submit();
 

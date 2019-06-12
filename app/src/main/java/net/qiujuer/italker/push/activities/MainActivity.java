@@ -70,6 +70,8 @@ public class MainActivity extends Activity
 
     @Override
     protected boolean initArgs(Bundle bundle) {
+
+
         if (Account.isComplete()) {
          //   Log.v("hqMain", "true initArgs");
             // 判断用户信息是否完全，完全则走正常流程

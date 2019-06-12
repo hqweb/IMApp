@@ -11,18 +11,18 @@ import java.util.List;
  * @version 1.0.0
  */
 public interface SearchContract {
-    interface Presenter extends BaseContract.Presenter {
+    interface Presenter<view extends  BaseContract.View> extends BaseContract.Presenter<view> {
         // 搜索内容
         void search(String content);
     }
 
     // 搜索人的界面
-    interface UserView extends BaseContract.View<Presenter> {
+    interface UserView extends BaseContract.View {
         void onSearchDone(List<UserCard> userCards);
     }
 
     // 搜索群的界面
-    interface GroupView extends BaseContract.View<Presenter> {
+    interface GroupView extends BaseContract.View{
         void onSearchDone(List<GroupCard> groupCards);
     }
 

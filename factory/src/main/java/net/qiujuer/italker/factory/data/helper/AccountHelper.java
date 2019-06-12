@@ -46,6 +46,7 @@ public class AccountHelper {
      * @param callback 成功与失败的接口回送
      */
     public static void login(final LoginModel model, final DataSource.Callback<User> callback) {
+
         // 调用Retrofit对我们的网络请求接口做代理
         RemoteService service = Network.remote();
         // 得到一个Call

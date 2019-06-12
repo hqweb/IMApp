@@ -22,7 +22,7 @@ import net.qiujuer.italker.push.activities.PersonalActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class ContactFragment extends PresenterFragment<ContactContract.Presenter>
+public class ContactFragment extends PresenterFragment<ContactPresenter>
         implements ContactContract.View {
 
     @BindView(R.id.empty)
@@ -85,11 +85,11 @@ public class ContactFragment extends PresenterFragment<ContactContract.Presenter
         mPresenter.start();
     }
 
-    @Override
-    protected ContactContract.Presenter initPresenter() {
-        // 初始化Presenter
-        return new ContactPresenter(this);
-    }
+//    @Override
+//    protected ContactContract.Presenter initPresenter() {
+//        // 初始化Presenter
+//        return new ContactPresenter(this);
+//    }
 
     @Override
     public RecyclerAdapter<User> getRecyclerAdapter() {

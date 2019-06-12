@@ -10,18 +10,32 @@ import net.qiujuer.italker.common.widget.convention.PlaceHolderView;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import butterknife.ButterKnife;
+import dagger.android.AndroidInjection;
+import dagger.android.AndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.support.HasSupportFragmentInjector;
+
 
 /**
  * @author qiujuer
  */
 
-public abstract class Activity extends AppCompatActivity {
+public abstract class Activity extends AppCompatActivity implements HasSupportFragmentInjector {
+
 
     protected PlaceHolderView mPlaceHolderView;
 
+    @Inject
+    DispatchingAndroidInjector<Fragment> mFragmentDispatchingAndroidInjector;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
+        AndroidInjection.inject(this);
+
         super.onCreate(savedInstanceState);
         // 在界面未初始化之前调用的初始化窗口
         initWidows();
@@ -121,5 +135,10 @@ public abstract class Activity extends AppCompatActivity {
      */
     public void setPlaceHolderView(PlaceHolderView placeHolderView) {
         this.mPlaceHolderView = placeHolderView;
+    }
+
+    @Override
+    public AndroidInjector<Fragment> supportFragmentInjector() {
+        return mFragmentDispatchingAndroidInjector;
     }
 }

@@ -12,28 +12,35 @@ import net.qiujuer.italker.common.widget.recycler.RecyclerAdapter;
  */
 public interface BaseContract {
     // 基本的界面职责
-    interface View<T extends Presenter> {
+    interface View{
         // 公共的：显示一个字符串错误
         void showError(@StringRes int str);
 
         // 公共的：显示进度条
         void showLoading();
 
-        // 支持设置一个Presenter
-        void setPresenter(T presenter);
+//        // 支持设置一个Presenter
+//        void setPresenter(T presenter);
     }
 
     // 基本的Presenter职责
-    interface Presenter {
+    interface Presenter<T extends BaseContract.View> {
         // 共用的开始触发
         void start();
 
         // 共用的销毁触发
         void destroy();
+
+        /**
+         * 注入View
+         *
+         * @param view view
+         */
+        void attachView(T view);
     }
 
     // 基本的一个列表的View的职责
-    interface RecyclerView<T extends Presenter, ViewMode> extends View<T> {
+    interface RecyclerView<T extends Presenter, ViewMode> extends View {
         // 界面端只能刷新整个数据集合，不能精确到每一条数据更新
         // void onDone(List<User> users);
 

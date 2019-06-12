@@ -35,7 +35,15 @@ dependencies {
     api "net.qiujuer.genius:kit-handler:$rootProject.ext.geniusVersion"
     api "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
 
-    // 空气面板
+    api "com.google.dagger:dagger:2.15"
+    api "com.google.dagger:dagger-android:2.15"
+    api "com.google.dagger:dagger-android-support:2.15"
+
+
+
+
+
+// 空气面板
     //api "net.qiujuer.widget:airpanel:$rootProject.ext.airpanelVersion"
     // Lame 录音 MP3 转码器
     api "net.qiujuer.lame:lame:$rootProject.ext.lameVersion"

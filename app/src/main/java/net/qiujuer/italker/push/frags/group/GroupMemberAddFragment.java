@@ -139,10 +139,10 @@ public class GroupMemberAddFragment extends BottomSheetDialogFragment
             mCallback.showLoading();
     }
 
-    @Override
-    public void setPresenter(GroupMemberAddContract.Presenter presenter) {
-        mPresenter = presenter;
-    }
+//    @Override
+//    public void setPresenter(GroupMemberAddContract.Presenter presenter) {
+//        mPresenter = presenter;
+//    }
 
     @Override
     public void onAddedSucceed() {

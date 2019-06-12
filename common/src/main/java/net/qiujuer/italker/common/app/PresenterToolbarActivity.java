@@ -11,7 +11,9 @@ import net.qiujuer.italker.factory.presenter.BaseContract;
  * @version 1.0.0
  */
 public abstract class PresenterToolbarActivity<Presenter extends BaseContract.Presenter>
-        extends ToolbarActivity implements BaseContract.View<Presenter> {
+        extends ToolbarActivity implements BaseContract.View{
+
+
     protected Presenter mPresenter;
     protected ProgressDialog mLoadingDialog;
 
@@ -19,7 +21,7 @@ public abstract class PresenterToolbarActivity<Presenter extends BaseContract.Pr
     protected void initBefore() {
         super.initBefore();
         // 初始化Presenter
-        initPresenter();
+       // initPresenter();
     }
 
     @Override
@@ -36,7 +38,7 @@ public abstract class PresenterToolbarActivity<Presenter extends BaseContract.Pr
      *
      * @return Presenter
      */
-    protected abstract Presenter initPresenter();
+//    protected abstract Presenter initPresenter();
 
     @Override
     public void showError(int str) {
@@ -94,9 +96,9 @@ public abstract class PresenterToolbarActivity<Presenter extends BaseContract.Pr
         }
     }
 
-    @Override
-    public void setPresenter(Presenter presenter) {
-        // View中赋值Presenter
-        mPresenter = presenter;
-    }
+//    @Override
+//    public void setPresenter(Presenter presenter) {
+//        // View中赋值Presenter
+//        mPresenter = presenter;
+//    }
 }

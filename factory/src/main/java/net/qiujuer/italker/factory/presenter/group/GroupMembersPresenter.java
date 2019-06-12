@@ -7,6 +7,8 @@ import net.qiujuer.italker.factory.presenter.BaseRecyclerPresenter;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
@@ -14,8 +16,9 @@ import java.util.List;
 public class GroupMembersPresenter extends BaseRecyclerPresenter<MemberUserModel, GroupMembersContract.View>
         implements GroupMembersContract.Presenter {
 
-    public GroupMembersPresenter(GroupMembersContract.View view) {
-        super(view);
+    @Inject
+    public GroupMembersPresenter() {
+        //super(view);
     }
 
     @Override

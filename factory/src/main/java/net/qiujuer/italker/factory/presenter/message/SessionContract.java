@@ -9,7 +9,7 @@ import net.qiujuer.italker.factory.presenter.BaseContract;
  */
 public interface SessionContract {
     // 什么都不需要额外定义，开始就是调用start即可
-    interface Presenter extends BaseContract.Presenter {
+    interface Presenter extends BaseContract.Presenter<SessionContract.View> {
 
     }
 

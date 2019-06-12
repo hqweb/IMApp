@@ -27,7 +27,7 @@ import net.qiujuer.italker.push.R;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.Presenter>
+public class PersonalActivity extends PresenterToolbarActivity<PersonalPresenter>
         implements PersonalContract.View {
     private static final String BOUND_KEY_ID = "BOUND_KEY_ID";
     private String userId;
@@ -152,8 +152,9 @@ public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.
         changeFollowItemStatus();
     }
 
-    @Override
-    protected PersonalContract.Presenter initPresenter() {
-        return new PersonalPresenter(this);
-    }
+//    @Override
+//    protected PersonalContract.Presenter initPresenter() {
+//        return new PersonalPresenter();
+//        //todo
+//    }
 }

@@ -28,7 +28,7 @@ import butterknife.OnClick;
 /**
  * 搜索群的界面实现
  */
-public class SearchGroupFragment extends PresenterFragment<SearchContract.Presenter>
+public class SearchGroupFragment extends PresenterFragment<SearchGroupPresenter>
         implements SearchActivity.SearchFragment, SearchContract.GroupView {
 
     @BindView(R.id.empty)
@@ -85,10 +85,11 @@ public class SearchGroupFragment extends PresenterFragment<SearchContract.Presen
         mPresenter.search(content);
     }
 
-    @Override
-    protected SearchContract.Presenter initPresenter() {
-        return new SearchGroupPresenter(this);
-    }
+//    @Override
+//    protected SearchContract.Presenter initPresenter() {
+//        return new SearchGroupPresenter();
+//        //todo
+//    }
 
     @Override
     public void onSearchDone(List<GroupCard> groupCards) {

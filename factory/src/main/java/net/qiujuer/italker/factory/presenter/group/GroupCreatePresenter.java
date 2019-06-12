@@ -20,6 +20,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.inject.Inject;
+
 /**
  * 群创建界面的Presenter
  *
@@ -31,8 +33,9 @@ public class GroupCreatePresenter extends BaseRecyclerPresenter<GroupCreateContr
 
     private Set<String> users = new HashSet<>();
 
-    public GroupCreatePresenter(GroupCreateContract.View view) {
-        super(view);
+    @Inject
+    public GroupCreatePresenter() {
+        //super(view);
     }
 
     @Override

@@ -21,6 +21,7 @@ import net.qiujuer.italker.push.frags.account.LoginFragment;
 import net.qiujuer.italker.push.frags.account.RegisterFragment;
 
 import butterknife.BindView;
+import dagger.android.AndroidInjection;
 
 public class AccountActivity extends Activity implements AccountTrigger {
     private Fragment mCurFragment;
@@ -41,6 +42,8 @@ public class AccountActivity extends Activity implements AccountTrigger {
 
     @Override
     protected int getContentLayoutId() {
+
+
         return R.layout.activity_account;
     }
 

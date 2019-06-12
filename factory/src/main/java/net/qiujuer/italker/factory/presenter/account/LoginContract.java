@@ -7,13 +7,13 @@ import net.qiujuer.italker.factory.presenter.BaseContract;
  * @version 1.0.0
  */
 public interface LoginContract {
-    interface View extends BaseContract.View<Presenter> {
+    interface View extends BaseContract.View {
         // 登录成功
         void loginSuccess();
     }
 
 
-    interface Presenter extends BaseContract.Presenter {
+    interface Presenter extends BaseContract.Presenter<LoginContract.View> {
         // 发起一个登录
         void login(String phone, String password);
     }

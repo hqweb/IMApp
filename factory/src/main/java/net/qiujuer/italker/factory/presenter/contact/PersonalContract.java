@@ -8,12 +8,12 @@ import net.qiujuer.italker.factory.presenter.BaseContract;
  * @version 1.0.0
  */
 public interface PersonalContract {
-    interface Presenter extends BaseContract.Presenter {
+    interface Presenter extends BaseContract.Presenter<PersonalContract.View> {
         // 获取用户信息
         User getUserPersonal();
     }
 
-    interface View extends BaseContract.View<Presenter> {
+    interface View extends BaseContract.View {
         String getUserId();
 
         // 加载数据完成

@@ -12,6 +12,8 @@ import net.qiujuer.italker.factory.utils.DiffUiDataCallback;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * 我的群组Presenter
  *
@@ -21,8 +23,9 @@ import java.util.List;
 public class GroupsPresenter extends BaseSourcePresenter<Group, Group,
         GroupsDataSource, GroupsContract.View> implements GroupsContract.Presenter {
 
-    public GroupsPresenter(GroupsContract.View view) {
-        super(new GroupsRepository(), view);
+    @Inject
+    public GroupsPresenter() {
+        super(new GroupsRepository());
     }
 
     @Override

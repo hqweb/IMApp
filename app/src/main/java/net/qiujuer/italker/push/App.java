@@ -8,15 +8,33 @@ import com.igexin.sdk.PushManager;
 
 import net.qiujuer.italker.common.app.Application;
 import net.qiujuer.italker.factory.Factory;
+import net.qiujuer.italker.push.di.component.AppComponent;
+import net.qiujuer.italker.push.di.component.DaggerAppComponent;
+
+import javax.inject.Inject;
+
+import dagger.android.AndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.HasActivityInjector;
 
 /**
  * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
-public class App extends Application {
+public class App extends Application implements HasActivityInjector {
+
+    @Inject
+    DispatchingAndroidInjector<Activity> mAndroidInjector;
+    private static volatile AppComponent appComponent;
+
     @Override
     public void onCreate() {
         super.onCreate();
+
+        appComponent = DaggerAppComponent.builder()
+                .build();
+
+        appComponent.inject(this);
 
         // 调用Factory进行初始化
         Factory.setup();
@@ -29,6 +47,11 @@ public class App extends Application {
     protected void showAccountView(Context context) {
         // 登录界面的显示
 
+    }
+
+    @Override
+    public AndroidInjector<Activity> activityInjector() {
+        return mAndroidInjector;
     }
 
     /**

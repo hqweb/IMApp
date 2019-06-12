@@ -20,7 +20,7 @@ import net.qiujuer.italker.push.activities.MessageActivity;
 
 import butterknife.BindView;
 
-public class GroupFragment extends PresenterFragment<GroupsContract.Presenter>
+public class GroupFragment extends PresenterFragment<GroupsPresenter>
         implements GroupsContract.View {
 
     @BindView(R.id.empty)
@@ -83,10 +83,10 @@ public class GroupFragment extends PresenterFragment<GroupsContract.Presenter>
         mPresenter.start();
     }
 
-    @Override
-    protected GroupsContract.Presenter initPresenter() {
-        return new GroupsPresenter(this);
-    }
+//    @Override
+//    protected GroupsContract.Presenter initPresenter() {
+//        return new GroupsPresenter(this);
+//    }
 
     @Override
     public RecyclerAdapter<Group> getRecyclerAdapter() {

@@ -10,7 +10,7 @@ import net.qiujuer.italker.factory.presenter.BaseContract;
  * @version 1.0.0
  */
 public interface GroupCreateContract {
-    interface Presenter extends BaseContract.Presenter {
+    interface Presenter extends BaseContract.Presenter<GroupCreateContract.View> {
         // 创建
         void create(String name, String desc, String picture);
 

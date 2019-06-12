@@ -33,7 +33,7 @@ import butterknife.BindView;
 /**
  * 群聊天界面实现
  */
-public class ChatGroupFragment extends ChatFragment<Group>
+public class ChatGroupFragment extends ChatFragment<Group,ChatGroupPresenter>
         implements ChatContract.GroupView {
 
     @BindView(R.id.im_header)
@@ -54,10 +54,10 @@ public class ChatGroupFragment extends ChatFragment<Group>
         return R.layout.lay_chat_header_group;
     }
 
-    @Override
-    protected ChatContract.Presenter initPresenter() {
-        return new ChatGroupPresenter(this, mReceiverId);
-    }
+//    @Override
+//    protected ChatContract.Presenter initPresenter() {
+//        return new ChatGroupPresenter(this, mReceiverId);
+//    }
 
     @Override
     protected void initWidget(View root) {

@@ -25,7 +25,7 @@ import butterknife.OnClick;
 /**
  * 用户聊天界面
  */
-public class ChatUserFragment extends ChatFragment<User>
+public class ChatUserFragment extends ChatFragment<User, ChatUserPresenter>
         implements ChatContract.UserView {
     @BindView(R.id.im_portrait)
     PortraitView mPortrait;
@@ -132,11 +132,11 @@ public class ChatUserFragment extends ChatFragment<User>
         PersonalActivity.show(getContext(), mReceiverId);
     }
 
-    @Override
-    protected ChatContract.Presenter initPresenter() {
-        // 初始化Presenter
-        return new ChatUserPresenter(this, mReceiverId);
-    }
+//    @Override
+//    protected ChatContract.Presenter initPresenter() {
+//        // 初始化Presenter
+//        return new ChatUserPresenter(this, mReceiverId);
+//    }
 
     @Override
     public void onInit(User user) {

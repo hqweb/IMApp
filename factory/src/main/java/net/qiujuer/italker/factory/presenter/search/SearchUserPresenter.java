@@ -9,6 +9,8 @@ import net.qiujuer.italker.factory.presenter.BasePresenter;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import retrofit2.Call;
 
 /**
@@ -18,11 +20,12 @@ import retrofit2.Call;
  * @version 1.0.0
  */
 public class SearchUserPresenter extends BasePresenter<SearchContract.UserView>
-        implements SearchContract.Presenter, DataSource.Callback<List<UserCard>> {
+        implements SearchContract.Presenter<SearchContract.UserView>, DataSource.Callback<List<UserCard>> {
     private Call searchCall;
 
-    public SearchUserPresenter(SearchContract.UserView view) {
-        super(view);
+    @Inject
+    public SearchUserPresenter() {
+       // super(view);
     }
 
     @Override

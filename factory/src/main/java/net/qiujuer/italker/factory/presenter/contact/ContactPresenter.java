@@ -13,6 +13,8 @@ import net.qiujuer.italker.factory.utils.DiffUiDataCallback;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * 联系人的Presenter实现
  *
@@ -22,9 +24,10 @@ import java.util.List;
 public class ContactPresenter extends BaseSourcePresenter<User, User, ContactDataSource, ContactContract.View>
         implements ContactContract.Presenter, DataSource.SucceedCallback<List<User>> {
 
-    public ContactPresenter(ContactContract.View view) {
+    @Inject
+    public ContactPresenter() {
         // 初始化数据仓库
-        super(new ContactRepository(), view);
+        super(new ContactRepository());
     }
 
 

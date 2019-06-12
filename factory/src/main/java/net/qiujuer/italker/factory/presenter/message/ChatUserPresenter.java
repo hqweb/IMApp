@@ -5,16 +5,19 @@ import net.qiujuer.italker.factory.data.message.MessageRepository;
 import net.qiujuer.italker.factory.model.db.Message;
 import net.qiujuer.italker.factory.model.db.User;
 
+import javax.inject.Inject;
+
 /**
  * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public class ChatUserPresenter extends ChatPresenter<ChatContract.UserView>
-        implements ChatContract.Presenter {
+        implements ChatContract.Presenter<ChatContract.UserView> {
 
-    public ChatUserPresenter(ChatContract.UserView view, String receiverId) {
+    @Inject
+    public ChatUserPresenter() {
         // 数据源，View，接收者，接收者的类型
-        super(new MessageRepository(receiverId), view, receiverId, Message.RECEIVER_TYPE_NONE);
+        super(new MessageRepository(mReceiverId), Message.RECEIVER_TYPE_NONE);
 
 
     }

@@ -28,13 +28,16 @@ import net.qiujuer.italker.push.activities.SearchActivity;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.OnClick;
+import dagger.android.support.AndroidSupportInjection;
 
 /**
  * 搜索人的界面实现
  */
-public class SearchUserFragment extends PresenterFragment<SearchContract.Presenter>
+public class SearchUserFragment extends PresenterFragment<SearchUserPresenter>
         implements SearchActivity.SearchFragment, SearchContract.UserView {
 
     @BindView(R.id.empty)
@@ -56,7 +59,7 @@ public class SearchUserFragment extends PresenterFragment<SearchContract.Present
     @Override
     protected void initWidget(View root) {
         super.initWidget(root);
-
+        //AndroidSupportInjection.inject(this);
         // 初始化Recycler
         mRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecycler.setAdapter(mAdapter = new RecyclerAdapter<UserCard>() {
@@ -98,16 +101,17 @@ public class SearchUserFragment extends PresenterFragment<SearchContract.Present
         mPlaceHolderView.triggerOkOrEmpty(mAdapter.getItemCount() > 0);
     }
 
-    @Override
-    protected SearchContract.Presenter initPresenter() {
-        // 初始化Presenter
-        return new SearchUserPresenter(this);
-    }
+//    @Override
+//    protected SearchContract.Presenter initPresenter() {
+//        // 初始化Presenter
+//        //todo
+//        return new SearchUserPresenter();
+//    }
 
     /**
      * 每一个Cell的布局操作
      */
-    class ViewHolder extends RecyclerAdapter.ViewHolder<UserCard>
+    class  ViewHolder extends RecyclerAdapter.ViewHolder<UserCard>
             implements FollowContract.View {
         @BindView(R.id.im_portrait)
         PortraitView mPortraitView;
@@ -118,13 +122,17 @@ public class SearchUserFragment extends PresenterFragment<SearchContract.Present
         @BindView(R.id.im_follow)
         ImageView mFollow;
 
-        private FollowContract.Presenter mPresenter;
+        @Inject
+        public FollowPresenter mPresenter;
 
 
         public ViewHolder(View itemView) {
             super(itemView);
+
             // 当前View和Presenter绑定
-            new FollowPresenter(this);
+            //todo
+            mPresenter = new FollowPresenter();
+            mPresenter.attachView(this);
         }
 
         @Override
@@ -173,10 +181,10 @@ public class SearchUserFragment extends PresenterFragment<SearchContract.Present
             drawable.start();
         }
 
-        @Override
-        public void setPresenter(FollowContract.Presenter presenter) {
-            mPresenter = presenter;
-        }
+//        @Override
+//        public void setPresenter(FollowContract.Presenter presenter) {
+//            mPresenter = presenter;
+//        }
 
         @Override
         public void onFollowSucceed(UserCard userCard) {

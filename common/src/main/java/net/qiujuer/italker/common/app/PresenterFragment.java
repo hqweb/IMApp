@@ -4,21 +4,32 @@ import android.content.Context;
 
 import net.qiujuer.italker.factory.presenter.BaseContract;
 
+import javax.inject.Inject;
+
+import dagger.android.AndroidInjection;
+import dagger.android.support.AndroidSupportInjection;
+
 /**
  * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public abstract class PresenterFragment<Presenter extends BaseContract.Presenter> extends Fragment
-        implements BaseContract.View<Presenter> {
+        implements BaseContract.View {
 
+    @Inject
     protected Presenter mPresenter;
 
     @Override
     public void onAttach(Context context) {
+        AndroidSupportInjection.inject(this);
+        if (mPresenter != null) {
+            mPresenter.attachView(this);
+        }
+
         super.onAttach(context);
 
         // 在界面onAttach之后就触发初始化Presenter
-        initPresenter();
+      //  initPresenter();
     }
 
     /**
@@ -26,7 +37,7 @@ public abstract class PresenterFragment<Presenter extends BaseContract.Presenter
      *
      * @return Presenter
      */
-    protected abstract Presenter initPresenter();
+   // protected abstract Presenter initPresenter();
 
     @Override
     public void showError(int str) {
@@ -45,11 +56,11 @@ public abstract class PresenterFragment<Presenter extends BaseContract.Presenter
         }
     }
 
-    @Override
-    public void setPresenter(Presenter presenter) {
-        // View中赋值Presenter
-        mPresenter = presenter;
-    }
+//    @Override
+//    public void setPresenter(Presenter presenter) {
+//        // View中赋值Presenter
+//        mPresenter = presenter;
+//    }
 
     @Override
     public void onDestroy() {

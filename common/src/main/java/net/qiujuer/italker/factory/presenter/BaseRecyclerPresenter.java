@@ -16,9 +16,10 @@ import java.util.List;
  */
 public class BaseRecyclerPresenter<ViewMode, View extends BaseContract.RecyclerView>
         extends BasePresenter<View> {
-    public BaseRecyclerPresenter(View view) {
-        super(view);
-    }
+
+//    public BaseRecyclerPresenter(View view) {
+//        super(view);
+//    }
 
     /**
      * 刷新一堆新数据到界面中

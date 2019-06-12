@@ -30,7 +30,7 @@ public class GroupMemberAddPresenter extends BaseRecyclerPresenter<GroupCreateCo
     private Set<String> users = new HashSet<>();
 
     public GroupMemberAddPresenter(GroupMemberAddContract.View view) {
-        super(view);
+        //super(view);
     }
 
     @Override

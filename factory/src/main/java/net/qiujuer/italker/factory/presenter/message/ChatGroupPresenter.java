@@ -9,6 +9,8 @@ import net.qiujuer.italker.factory.persistence.Account;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * 群聊天的逻辑
  *
@@ -16,11 +18,12 @@ import java.util.List;
  * @version 1.0.0
  */
 public class ChatGroupPresenter extends ChatPresenter<ChatContract.GroupView>
-        implements ChatContract.Presenter {
+        implements ChatContract.Presenter<ChatContract.GroupView> {
 
-    public ChatGroupPresenter(ChatContract.GroupView view, String receiverId) {
+    @Inject
+    public ChatGroupPresenter() {
         // 数据源，View，接收者，接收者的类型
-        super(new MessageGroupRepository(receiverId), view, receiverId, Message.RECEIVER_TYPE_GROUP);
+        super(new MessageGroupRepository(mReceiverId), Message.RECEIVER_TYPE_GROUP);
     }
 
     @Override
@@ -48,4 +51,5 @@ public class ChatGroupPresenter extends ChatPresenter<ChatContract.GroupView>
         }
 
     }
+
 }

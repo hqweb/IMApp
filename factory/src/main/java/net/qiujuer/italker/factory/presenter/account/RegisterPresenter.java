@@ -15,16 +15,23 @@ import net.qiujuer.italker.factory.presenter.BasePresenter;
 
 import java.util.regex.Pattern;
 
+import javax.inject.Inject;
+
 /**
  * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
+ * @version 1.0.0Presenter
  */
 public class RegisterPresenter extends BasePresenter<RegisterContract.View>
         implements RegisterContract.Presenter, DataSource.Callback<User> {
-    public RegisterPresenter(RegisterContract.View view) {
-        super(view);
-    }
+//    public RegisterPresenter(RegisterContract.View view) {
+//        super(view);
+//    }
 
+
+    @Inject
+    public RegisterPresenter() {
+
+    }
     @Override
     public void register(String phone, String name, String password) {
         // 调用开始方法，在start中默认启动了Loading

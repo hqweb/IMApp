@@ -26,7 +26,7 @@ import net.qiujuer.italker.utils.DateTimeUtil;
 import butterknife.BindView;
 
 
-public class ActiveFragment extends PresenterFragment<SessionContract.Presenter>
+public class ActiveFragment extends PresenterFragment<SessionPresenter>
         implements SessionContract.View {
 
     @BindView(R.id.empty)
@@ -90,10 +90,10 @@ public class ActiveFragment extends PresenterFragment<SessionContract.Presenter>
         mPresenter.start();
     }
 
-    @Override
-    protected SessionContract.Presenter initPresenter() {
-        return new SessionPresenter(this);
-    }
+//    @Override
+//    protected SessionContract.Presenter initPresenter() {
+//        return new SessionPresenter(this);
+//    }
 
     @Override
     public RecyclerAdapter<Session> getRecyclerAdapter() {

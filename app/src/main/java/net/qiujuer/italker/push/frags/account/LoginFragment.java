@@ -18,7 +18,7 @@ import butterknife.OnClick;
 /**
  * 登录的界面
  */
-public class LoginFragment extends PresenterFragment<LoginContract.Presenter>
+public class LoginFragment extends PresenterFragment<LoginPresenter>
         implements LoginContract.View {
     private AccountTrigger mAccountTrigger;
 
@@ -45,10 +45,14 @@ public class LoginFragment extends PresenterFragment<LoginContract.Presenter>
         mAccountTrigger = (AccountTrigger) context;
     }
 
-    @Override
-    protected LoginContract.Presenter initPresenter() {
-        return new LoginPresenter(this);
-    }
+
+
+
+
+//    @Override
+//    protected LoginContract.Presenter initPresenter() {
+//        return new LoginPresenter(this);
+//    }
 
     @Override
     protected int getContentLayoutId() {
@@ -97,6 +101,8 @@ public class LoginFragment extends PresenterFragment<LoginContract.Presenter>
         // 提交按钮不可以继续点击
         mSubmit.setEnabled(false);
     }
+
+
 
     @Override
     public void loginSuccess() {

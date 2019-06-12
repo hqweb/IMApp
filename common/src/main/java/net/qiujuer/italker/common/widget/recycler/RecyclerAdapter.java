@@ -262,7 +262,9 @@ public abstract class RecyclerAdapter<Data>
         private AdapterCallback<Data> callback;
         protected Data mData;
 
+
         public ViewHolder(View itemView) {
+
             super(itemView);
         }
 

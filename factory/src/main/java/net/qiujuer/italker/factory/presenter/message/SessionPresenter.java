@@ -10,6 +10,8 @@ import net.qiujuer.italker.factory.utils.DiffUiDataCallback;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * 最近聊天列表的Presenter
  *
@@ -19,9 +21,14 @@ import java.util.List;
 public class SessionPresenter extends BaseSourcePresenter<Session, Session,
         SessionDataSource, SessionContract.View> implements SessionContract.Presenter {
 
-    public SessionPresenter(SessionContract.View view) {
-        super(new SessionRepository(), view);
+    @Inject
+    public SessionPresenter() {
+        super(new SessionRepository());
     }
+
+//    public SessionPresenter(SessionContract.View view) {
+//
+//    }
 
     @Override
     public void onDataLoaded(List<Session> sessions) {

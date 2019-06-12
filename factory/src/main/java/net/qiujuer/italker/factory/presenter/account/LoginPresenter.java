@@ -12,6 +12,8 @@ import net.qiujuer.italker.factory.model.db.User;
 import net.qiujuer.italker.factory.persistence.Account;
 import net.qiujuer.italker.factory.presenter.BasePresenter;
 
+import javax.inject.Inject;
+
 /**
  * 登录的逻辑实现
  *
@@ -20,9 +22,17 @@ import net.qiujuer.italker.factory.presenter.BasePresenter;
  */
 public class LoginPresenter extends BasePresenter<LoginContract.View>
         implements LoginContract.Presenter, DataSource.Callback<User> {
-    public LoginPresenter(LoginContract.View view) {
-        super(view);
+
+    @Inject
+    public LoginPresenter() {
+
     }
+
+
+
+//    public LoginPresenter(LoginContract.View view) {
+//        super(view);
+//    }
 
     @Override
     public void login(String phone, String password) {
@@ -33,9 +43,13 @@ public class LoginPresenter extends BasePresenter<LoginContract.View>
         if (TextUtils.isEmpty(phone) || TextUtils.isEmpty(password)) {
             view.showError(R.string.data_account_login_invalid_parameter);
         } else {
+
             // 尝试传递PushId
             LoginModel model = new LoginModel(phone, password, Account.getPushId());
             AccountHelper.login(model, this);
+
+
+
         }
     }
 

@@ -18,7 +18,7 @@ import butterknife.OnClick;
 /**
  * 注册的界面
  */
-public class RegisterFragment extends PresenterFragment<RegisterContract.Presenter>
+public class RegisterFragment extends PresenterFragment<RegisterPresenter>
         implements RegisterContract.View {
     private AccountTrigger mAccountTrigger;
 
@@ -48,10 +48,11 @@ public class RegisterFragment extends PresenterFragment<RegisterContract.Present
         mAccountTrigger = (AccountTrigger) context;
     }
 
-    @Override
-    protected RegisterContract.Presenter initPresenter() {
-        return new RegisterPresenter(this);
-    }
+//    @Override
+//    protected RegisterContract.Presenter initPresenter() {
+//        //todo
+//        return new RegisterPresenter();
+//    }
 
     @Override
     protected int getContentLayoutId() {

@@ -9,12 +9,12 @@ import net.qiujuer.italker.factory.presenter.BaseContract;
  * @version 1.0.0
  */
 public interface UpdateInfoContract {
-    interface Presenter extends BaseContract.Presenter {
+    interface Presenter extends BaseContract.Presenter<UpdateInfoContract.View> {
         // 更新
         void update(String photoFilePath, String desc, boolean isMan);
     }
 
-    interface View extends BaseContract.View<Presenter> {
+    interface View extends BaseContract.View {
         // 回调成功
         void updateSucceed();
     }

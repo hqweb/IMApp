@@ -19,8 +19,8 @@ public abstract class BaseSourcePresenter<Data, ViewModel,
 
     protected Source mSource;
 
-    public BaseSourcePresenter(Source source, View view) {
-        super(view);
+    public BaseSourcePresenter(Source source) {
+       // super(view);
         this.mSource = source;
     }
 

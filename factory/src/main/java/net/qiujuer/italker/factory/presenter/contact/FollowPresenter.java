@@ -7,17 +7,22 @@ import net.qiujuer.italker.factory.data.helper.UserHelper;
 import net.qiujuer.italker.factory.model.card.UserCard;
 import net.qiujuer.italker.factory.presenter.BasePresenter;
 
+import javax.inject.Inject;
+
 /**
  * 关注的逻辑实现
  *
  * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
+
+
 public class FollowPresenter extends BasePresenter<FollowContract.View>
         implements FollowContract.Presenter, DataSource.Callback<UserCard> {
 
-    public FollowPresenter(FollowContract.View view) {
-        super(view);
+    @Inject
+    public FollowPresenter() {
+//        super(view);
     }
 
     @Override

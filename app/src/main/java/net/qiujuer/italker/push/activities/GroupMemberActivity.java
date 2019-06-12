@@ -23,7 +23,7 @@ import net.qiujuer.italker.push.frags.group.GroupMemberAddFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class GroupMemberActivity extends PresenterToolbarActivity<GroupMembersContract.Presenter>
+public class GroupMemberActivity extends PresenterToolbarActivity<GroupMembersPresenter>
         implements GroupMembersContract.View, GroupMemberAddFragment.Callback {
     private static final String KEY_GROUP_ID = "KEY_GROUP_ID";
     private static final String KEY_GROUP_ADMIN = "KEY_GROUP_ADMIN";
@@ -114,10 +114,10 @@ public class GroupMemberActivity extends PresenterToolbarActivity<GroupMembersCo
         hideLoading();
     }
 
-    @Override
-    protected GroupMembersContract.Presenter initPresenter() {
-        return new GroupMembersPresenter(this);
-    }
+//    @Override
+//    protected GroupMembersContract.Presenter initPresenter() {
+//        return new GroupMembersPresenter(this);
+//    }
 
     @Override
     public String getGroupId() {

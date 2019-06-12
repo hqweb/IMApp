@@ -33,7 +33,7 @@ import butterknife.BindView;
 import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 
-public class GroupCreateActivity extends PresenterToolbarActivity<GroupCreateContract.Presenter>
+public class GroupCreateActivity extends PresenterToolbarActivity<GroupCreatePresenter>
         implements GroupCreateContract.View {
     @BindView(R.id.recycler)
     RecyclerView mRecycler;
@@ -176,10 +176,10 @@ public class GroupCreateActivity extends PresenterToolbarActivity<GroupCreateCon
         finish();
     }
 
-    @Override
-    protected GroupCreateContract.Presenter initPresenter() {
-        return new GroupCreatePresenter(this);
-    }
+//    @Override
+//    protected GroupCreateContract.Presenter initPresenter() {
+//        return new GroupCreatePresenter(this);
+//    }
 
     @Override
     public RecyclerAdapter<GroupCreateContract.ViewModel> getRecyclerAdapter() {

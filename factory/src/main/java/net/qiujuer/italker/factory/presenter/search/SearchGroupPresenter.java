@@ -9,6 +9,8 @@ import net.qiujuer.italker.factory.presenter.BasePresenter;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import retrofit2.Call;
 
 /**
@@ -18,11 +20,12 @@ import retrofit2.Call;
  * @version 1.0.0
  */
 public class SearchGroupPresenter extends BasePresenter<SearchContract.GroupView>
-        implements SearchContract.Presenter, DataSource.Callback<List<GroupCard>> {
+        implements SearchContract.Presenter<SearchContract.GroupView>, DataSource.Callback<List<GroupCard>> {
     private Call searchCall;
 
-    public SearchGroupPresenter(SearchContract.GroupView view) {
-        super(view);
+    @Inject
+    public SearchGroupPresenter() {
+
     }
 
     @Override

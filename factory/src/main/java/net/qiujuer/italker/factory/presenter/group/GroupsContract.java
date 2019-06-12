@@ -11,7 +11,7 @@ import net.qiujuer.italker.factory.presenter.BaseContract;
  */
 public interface GroupsContract {
     // 什么都不需要额外定义，开始就是调用start即可
-    interface Presenter extends BaseContract.Presenter {
+    interface Presenter extends BaseContract.Presenter<GroupsContract.View> {
 
     }
 

@@ -51,6 +51,8 @@ import net.qiujuer.widget.airpanel.Util;
 import java.io.File;
 import java.util.Objects;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -58,12 +60,13 @@ import butterknife.OnClick;
  * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
-public abstract class ChatFragment<InitModel>
-        extends PresenterFragment<ChatContract.Presenter>
+public abstract class ChatFragment<InitModel, Presenter extends ChatContract.Presenter>
+        extends PresenterFragment<Presenter>
         implements AppBarLayout.OnOffsetChangedListener,
         ChatContract.View<InitModel>, PanelFragment.PanelCallback {
 
-    protected String mReceiverId;
+    public String mReceiverId;
+
     protected Adapter mAdapter;
 
     @BindView(R.id.toolbar)
@@ -96,6 +99,8 @@ public abstract class ChatFragment<InitModel>
     protected void initArgs(Bundle bundle) {
         super.initArgs(bundle);
         mReceiverId = bundle.getString(MessageActivity.KEY_RECEIVER_ID);
+        mPresenter.setReceiverId(mReceiverId);
+
     }
 
     @Override

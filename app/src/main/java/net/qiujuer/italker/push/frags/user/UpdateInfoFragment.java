@@ -32,7 +32,7 @@ import static android.app.Activity.RESULT_OK;
 /**
  * 用户更新信息的节目
  */
-public class UpdateInfoFragment extends PresenterFragment<UpdateInfoContract.Presenter>
+public class UpdateInfoFragment extends PresenterFragment<UpdateInfoPresenter>
         implements UpdateInfoContract.View {
 
     @BindView(R.id.im_sex)
@@ -180,9 +180,10 @@ public class UpdateInfoFragment extends PresenterFragment<UpdateInfoContract.Pre
         getActivity().finish();
     }
 
-    @Override
-    protected UpdateInfoContract.Presenter initPresenter() {
-        // 初始化Presenter
-        return new UpdateInfoPresenter(this);
-    }
+//    @Override
+//    protected UpdateInfoContract.Presenter initPresenter() {
+//        // 初始化Presenter
+//        //todo
+//        return new UpdateInfoPresenter();
+//    }
 }
