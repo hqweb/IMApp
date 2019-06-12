@@ -5,6 +5,7 @@ import android.text.TextUtils;
 
 import net.qiujuer.italker.factory.data.helper.MessageHelper;
 import net.qiujuer.italker.factory.data.message.MessageDataSource;
+import net.qiujuer.italker.factory.data.message.MessageGroupRepository;
 import net.qiujuer.italker.factory.model.api.message.MsgCreateModel;
 import net.qiujuer.italker.factory.model.db.Message;
 import net.qiujuer.italker.factory.persistence.Account;
@@ -25,14 +26,14 @@ public class ChatPresenter<View extends ChatContract.View>
         implements ChatContract.Presenter<View> {
 
     // 接收者Id，可能是群，或者人的ID
-    protected static String mReceiverId;
+    protected  String mReceiverId;
     // 区分是人还是群Id
     protected int mReceiverType;
 
 
-    public ChatPresenter(MessageDataSource source,
+    public ChatPresenter(
                         int receiverType) {
-        super(source);
+        super(null);
 
         this.mReceiverType = receiverType;
     }
@@ -103,6 +104,7 @@ public class ChatPresenter<View extends ChatContract.View>
     @Override
     public String setReceiverId(String receiverId) {
         this.mReceiverId = receiverId;
+
         return receiverId;
     }
 

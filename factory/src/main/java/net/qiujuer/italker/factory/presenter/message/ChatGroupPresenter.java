@@ -2,6 +2,7 @@ package net.qiujuer.italker.factory.presenter.message;
 
 import net.qiujuer.italker.factory.data.helper.GroupHelper;
 import net.qiujuer.italker.factory.data.message.MessageGroupRepository;
+import net.qiujuer.italker.factory.data.message.MessageRepository;
 import net.qiujuer.italker.factory.model.db.Group;
 import net.qiujuer.italker.factory.model.db.Message;
 import net.qiujuer.italker.factory.model.db.view.MemberUserModel;
@@ -23,7 +24,14 @@ public class ChatGroupPresenter extends ChatPresenter<ChatContract.GroupView>
     @Inject
     public ChatGroupPresenter() {
         // 数据源，View，接收者，接收者的类型
-        super(new MessageGroupRepository(mReceiverId), Message.RECEIVER_TYPE_GROUP);
+        super(Message.RECEIVER_TYPE_GROUP);
+    }
+
+    @Override
+    public String setReceiverId(String receiverId) {
+        super.setReceiverId(receiverId);
+        mSource = new MessageGroupRepository(receiverId);
+        return receiverId;
     }
 
     @Override

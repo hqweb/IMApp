@@ -9,6 +9,7 @@ import com.igexin.sdk.PushManager;
 import net.qiujuer.italker.common.app.Application;
 import net.qiujuer.italker.factory.Factory;
 import net.qiujuer.italker.push.di.component.AppComponent;
+
 import net.qiujuer.italker.push.di.component.DaggerAppComponent;
 
 import javax.inject.Inject;

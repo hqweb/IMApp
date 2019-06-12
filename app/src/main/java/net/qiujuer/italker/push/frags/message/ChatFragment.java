@@ -103,6 +103,11 @@ public abstract class ChatFragment<InitModel, Presenter extends ChatContract.Pre
 
     }
 
+    @Inject
+    public String getmReceiverId() {
+        return mReceiverId;
+    }
+
     @Override
     protected final int getContentLayoutId() {
         return R.layout.fragment_chat_common;

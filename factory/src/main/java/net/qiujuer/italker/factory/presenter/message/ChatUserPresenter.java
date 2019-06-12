@@ -1,6 +1,7 @@
 package net.qiujuer.italker.factory.presenter.message;
 
 import net.qiujuer.italker.factory.data.helper.UserHelper;
+import net.qiujuer.italker.factory.data.message.MessageGroupRepository;
 import net.qiujuer.italker.factory.data.message.MessageRepository;
 import net.qiujuer.italker.factory.model.db.Message;
 import net.qiujuer.italker.factory.model.db.User;
@@ -17,7 +18,7 @@ public class ChatUserPresenter extends ChatPresenter<ChatContract.UserView>
     @Inject
     public ChatUserPresenter() {
         // 数据源，View，接收者，接收者的类型
-        super(new MessageRepository(mReceiverId), Message.RECEIVER_TYPE_NONE);
+        super(Message.RECEIVER_TYPE_NONE);
 
 
     }
@@ -29,5 +30,12 @@ public class ChatUserPresenter extends ChatPresenter<ChatContract.UserView>
         // 从本地拿这个人的信息
         User receiver = UserHelper.findFromLocal(mReceiverId);
         getView().onInit(receiver);
+    }
+
+    @Override
+    public String setReceiverId(String receiverId) {
+        super.setReceiverId(receiverId);
+        mSource = new MessageRepository(receiverId);
+        return receiverId;
     }
 }
