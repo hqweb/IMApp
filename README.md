@@ -24,3 +24,7 @@ IMApp项目基于Material Design + MVP + Rxjava2 + Retrofit + Dagger2 + DBFlow +
 <div align="center">
 <img src="https://github.com/hqweb/IMApp/blob/master/screenshots/聊天.gif"><img src="https://github.com/hqweb/IMApp/blob/master/screenshots/切换.gif">
 </div>
+
+<div align="center">
+<img src="https://github.com/hqweb/IMApp/blob/master/screenshots/关注.gif">
+</div>
