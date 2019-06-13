@@ -13,3 +13,4 @@ IMApp项目基于Material Design + MVP + Rxjava2 + Retrofit + Dagger2 + DBFlow +
 
 #### Tips：
 - Android Studio 上提示缺失Dagger生成的类，可以直接编译项目，会由Dagger2自动生成
+- 目前项目未完成，我会努力进行改进
