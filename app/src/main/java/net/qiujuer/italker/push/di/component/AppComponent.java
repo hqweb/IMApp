@@ -3,6 +3,8 @@ package net.qiujuer.italker.push.di.component;
 import net.qiujuer.italker.push.App;
 import net.qiujuer.italker.push.di.moudle.AbstractAllActivityModule;
 import net.qiujuer.italker.push.di.moudle.AbstractAllFragmentModule;
+import net.qiujuer.italker.push.di.moudle.AppMoudle;
+import net.qiujuer.italker.push.di.moudle.HttpModule;
 
 import javax.inject.Singleton;
 
@@ -19,7 +21,9 @@ import dagger.android.support.AndroidSupportInjectionModule;
 @Component(modules = {AndroidInjectionModule.class,
         AndroidSupportInjectionModule.class,
         AbstractAllActivityModule.class,
-        AbstractAllFragmentModule.class})
+        AbstractAllFragmentModule.class,
+        AppMoudle.class,
+        HttpModule.class})
 public interface AppComponent {
 
     /**
